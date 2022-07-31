@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Why Tech is so important",
+        "text": "In previous times, it could take days, possibly weeks, for communication to reach someone just 100 miles away.  In many ways, technology has made the world a smaller place, exponentially decreasing the time required for communication over long distances. This has allowed humanity the potential of coming together like never before in history.",
+        "user_id": 1
+    },
+    {
+        "title": "Video Conferencing",
+        "text": "As an aspiring musician, video conferencing has allowed me to connect with teachers and coaches anywhere in the world. I am not limited to those in my town or city.  I love this!",
+        "user_id": 2
+    },
+    {
+        "title": "The intricacies of JS",
+        "text": "JS fascinates me due to it's depth of functionaliy, and it is only getting deeper! The possibilities of what it can do is very exciting!",
+        "user_id": 3
+    },
+    {
+        "title": "",
+        "text": "",
+        "user_id": 4
+    },
+    {
+        "title": "",
+        "text": "",
+        "user_id": 5
+    }
+]
