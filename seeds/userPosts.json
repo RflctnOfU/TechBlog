@@ -15,8 +15,8 @@
         "user_id": 3
     },
     {
-        "title": "",
-        "text": "",
+        "title": "Sequelize makes MySQL doable",
+        "text": "I discovered when learning MySQL that I absolutely hate writing it.  Someone said, and I agree, it is easy to read, hard to write. The syntax is so exacting it caused MUCH frustration when learning it. Enter Sequelize.  This magnificent little package does all the syntax for me! I can write something as an object literal, and my database is updated accordingly.  I love this package!",
         "user_id": 4
     },
     {
