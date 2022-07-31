@@ -9,29 +9,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&family=Work+Sans:wght@100&display=swap"
         rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="/public/css/jass.css">
+    <link rel="stylesheet" href="/css/jass.css">
+    <link rel="stylesheet" href="/css/style.css">
+
     <title>The Tech Blog</title>
 </head>
 
 <body>
-    <header class="is-flex-direction-column" style="background-color: var(main-color);">
-        <div>
-            <nav style=>
-                <a href="#">Home</a><a href="#">Dashboard</a>
-                {{#if !loggedIn}}
-                <a href="#">Login</a>
-                {{else}}
-                <a href="#">logout</a>
-                {{/if}}
-            </nav>
+    <header class="block">
+        <div id="grad">
+            <div>
+                <nav>
+                    <div style="font-weight: bold; display: inline-block;">
+                        <button type="button">Home</button>
+                        <button type="button">Dashboard</button>
+                        {{!-- {{#if !loggedIn}} --}}
+                        <button type="button">Login</button>
+                        {{!-- {{else}} --}}
+                        <button type="button">Logout</button>
+                        {{!-- {{/if}} --}}
+                    </div>
+                </nav>
+            </div>
         </div>
-        <div class="box">
-            <h2>Tech Blog</h2>
+        <div class="title">
+            <h2>The Tech Blog</h2>
         </div>
     </header>
-
-    {{{body}}}
+    <main>
+        {{{body}}}
+    </main>
 </body>
 
 </html>
