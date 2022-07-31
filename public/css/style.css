@@ -1,0 +1,9 @@
+:root {
+    --highlight-color: rgb(238, 145, 135);
+    --text-color: rgb(72, 204, 247);
+    --main-color: rgb(48, 73, 94);
+}
+
+nav {
+    font-family: 'Work Sans', sans-serif;
+}
