@@ -20,8 +20,8 @@
         "user_id": 4
     },
     {
-        "title": "",
-        "text": "",
+        "title": "JavaScript Frameworks",
+        "text": "I put off looking into js frameworks until I learned vanilla js first.  Boy am I glad I did.  The frameworks really streamline things, and deepen my appreciation for Vanilla quite a bit.",
         "user_id": 5
     }
 ]
