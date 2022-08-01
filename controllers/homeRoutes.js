@@ -5,25 +5,21 @@ const { User, Posts } = require('../models');
 
 
 router.get('/', async (req, res) => {
-    // try {
-    //     const userData = await User.findAll({
-    //         attributes: {
-    //             exclude:
-    //                 ['password']
-    //         },
-    //         order: ['id', 'ASC'],
-    //     });
-
-    //     res.render('homepage', {
-    //         userData,
-    //     });
-    // } catch (err) {
-    //     res.status(500).json(err);
-    // }
     try {
-        res.render('homepage');
-    } catch (error) {
-        res.status(500).json(error);
+        const postData = await Posts.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['name'],
+                },
+            ],
+        });
+        const posts = postData.map((post) => post.get({ plain: true }));
+        res.render('homepage', {
+            posts,
+        });
+    } catch (err) {
+        res.status(500).json(err);
     }
 }
 );

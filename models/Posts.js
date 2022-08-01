@@ -26,6 +26,13 @@ Posts.init(
                 key: 'id',
             },
         },
+        time: {
+            type: DataTypes.DATEONLY,
+            get() {
+                return `${new Date.getDate()}-${new Date.getMonth()}-${new Date.getFullYear()}`
+            }
+
+        },
     },
     {
         sequelize,

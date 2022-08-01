@@ -3,12 +3,12 @@
     --text-color: hsl(195, 92%, 63%);
     --main-color: rgb(48, 73, 94);
     --second-main-color: rgb(62, 101, 132);
+    --bg-color: rgb(192, 204, 212);
 }
 
 body {
-    height: auto;
-    width: 100vw;
-    overflow-y: hidden;
+    background-color: var(--bg-color);
+    height: 100vh;
 }
 
 nav button {
@@ -39,6 +39,7 @@ nav button:hover {
     text-decoration: none;
     opacity: .7;
     transition: .3s;
+    cursor: pointer;
 }
 
 header {
@@ -46,6 +47,50 @@ header {
     background-color: var(--main-color);
     color: var(--text-color);
     padding-bottom: 20px;
+}
+
+.card {
+    width: 90%;
+    box-shadow: 5px 5px 9px var(--second-main-color);
+    /* justify-self: center; */
+}
+
+.card header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Rajdhani', sans-serif;
+    padding-bottom: 0px;
+    padding-top: 5px;
+}
+
+.card p {
+    padding: 5px 9px 0 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Work Sans', sans-serif;
+    color: var(--main-color);
+}
+
+h4 {
+    padding-left: 15px;
+}
+
+h6 {
+    padding-right: 15px;
+}
+
+h4,
+h6 {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    padding-top: 2px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
 }
 
 /* #grad {
