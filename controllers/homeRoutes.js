@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['id', 'name'],
                 },
             ],
         });
@@ -44,8 +44,8 @@ router.get('/login', withAuth, (req, res) => {
     res.render('login');
 });
 
-router.get('/dashboard', (req, res) => {
+router.get('/dashboard/', withAuth, (req, res) => {
     res.render('dashboard');
-})
+});
 
 module.exports = router;
