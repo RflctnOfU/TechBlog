@@ -22,3 +22,12 @@ const loginFormHandler = async (event) => {
 document
     .querySelector('.login-form')
     .addEventListener('submit', loginFormHandler);
+document.querySelector('#sign-up').addEventListener('click', async () => {
+    const response = await fetch('/signup', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    });
+    if (response.ok) {
+        document.location.replace('signup');
+    }
+});

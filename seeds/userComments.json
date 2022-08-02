@@ -1,0 +1,27 @@
+[
+    {
+        "text": "I agree wholeheartedly. JS rocks!!",
+        "user_id": 1,
+        "posts_id": 3
+    },
+    {
+        "text": "Perhaps. That potential is unrealized though. Humanity seems to be getting more divided and farther apart.",
+        "user_id": 4,
+        "posts_id": 1
+    },
+    {
+        "text": "MySql isn't THAT bad...",
+        "user_id": 5,
+        "posts_id": 4
+    },
+    {
+        "text": "What instrument do you play?",
+        "user_id": 3,
+        "posts_id": 2
+    },
+    {
+        "text": "I am having a hard time wrapping my head around the frameworks...I prefer Vanilla",
+        "user_id": 2,
+        "posts_id": 5
+    }
+]

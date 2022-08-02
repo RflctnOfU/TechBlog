@@ -33,7 +33,9 @@ nav button {
     opacity: 1;
 }
 
-.form-group button {
+
+.form-group button,
+#sign-up {
     font-family: 'Work Sans', sans-serif;
     color: var(--text-color);
     background-color: var(--main-color);
@@ -49,7 +51,9 @@ nav button {
     opacity: 1;
 }
 
-nav button:hover {
+nav button:hover,
+.form-group button:hover,
+#sign-up:hover {
     transition: all;
     color: var(--highlight-color);
     text-decoration: none;
