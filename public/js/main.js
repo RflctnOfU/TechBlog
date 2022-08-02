@@ -36,6 +36,18 @@ login.addEventListener('click', async (e) => {
         document.location.replace('/login');
     }
 });
-logout.addEventListener('click', () => {
-    // console.log('LOGOUT');
-});
+
+const logOut = async () => {
+    const response = await fetch('/api/users/logout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+        alert('logout successful!');
+    } else {
+        alert(response.statusText);
+    }
+};
+
+logout.addEventListener('click', logOut);

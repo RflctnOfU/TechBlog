@@ -26,17 +26,10 @@ Posts.init(
                 key: 'id',
             },
         },
-        time: {
-            type: DataTypes.DATEONLY,
-            // get() {
-            //     return `${new Date.getDate()}-${new Date.getMonth()}-${new Date.getFullYear()}`
-            // }
-
-        },
     },
     {
         sequelize,
-        timestamps: false,
+        timestamps: true,
         freezeTableName: true,
         underscored: true,
         modelName: 'posts',
