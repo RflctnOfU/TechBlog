@@ -37,7 +37,7 @@ router.post('/login', async (req, res) => {
         if (!dbUserData) {
             res
                 .status(400)
-                .json({ message: 'Incorrect email or password. Please try again!' });
+                .json({ message: 'Incorrect email. Please try again!' });
             return;
         }
 
@@ -46,16 +46,17 @@ router.post('/login', async (req, res) => {
         if (!validPassword) {
             res
                 .status(400)
-                .json({ message: 'Incorrect email or password. Please try again!' });
+                .json({ message: 'Incorrect password. Please try again!' });
             return;
         }
 
         req.session.save(() => {
+            req.session.user_id = dbUserData.id;
             req.session.logged_in = true;
-            console.log(
-                '🚀 ~ file: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie',
-                req.session.cookie
-            );
+            // console.log(
+            //     '🚀 ~ file: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie',
+            //     req.session.cookie
+            // );
 
             res
                 .status(200)
@@ -68,7 +69,7 @@ router.post('/login', async (req, res) => {
 
 });
 
-router.post('/api/users/logout', (req, res) => {
+router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
             res.status(204).end();
@@ -76,9 +77,9 @@ router.post('/api/users/logout', (req, res) => {
     } else {
         res.status(404).end();
     }
-    // res.render('homepage', {
-    //     posts,
-    // });
+    res.render('homepage', {
+        posts,
+    });
 });
 
 module.exports = router;

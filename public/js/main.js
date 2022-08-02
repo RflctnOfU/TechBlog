@@ -22,23 +22,23 @@ dashboard.addEventListener('click', async (e) => {
         headers: { 'Content-Type': 'application/json' },
     });
     if (res.ok) {
-        document.location.replace('/dashboard');
+        res.render('/dashboard');
     }
 });
 login.addEventListener('click', async (e) => {
     // console.log('LOGIN');
     e.preventDefault();
-    const res = await fetch('/login', {
+    const login = await fetch('/login', {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
     });
-    if (res.ok) {
+    if (login.ok) {
         document.location.replace('/login');
     }
 });
 
 const logOut = async () => {
-    const response = await fetch('/api/users/logout', {
+    const response = await fetch('/logout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
     });

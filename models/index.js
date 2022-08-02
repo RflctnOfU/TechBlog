@@ -4,6 +4,7 @@ const Posts = require('./Posts');
 
 User.hasMany(Posts, {
     foreignKey: 'user_id',
+    onDelete: 'CASCADE',
 });
 
 // User.hasMany(Comment, {
