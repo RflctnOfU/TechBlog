@@ -3,14 +3,38 @@ const dashboard = document.getElementById('dashboard');
 const login = document.getElementById('login');
 const logout = document.getElementById('logout');
 
-home.addEventListener('click', () => {
-    // console.log('HOME');
+home.addEventListener('click', async (e) => {
+    e.preventDefault();
+    // console.log("HOME");
+    const res = await fetch('/', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    });
+    if (res.ok) {
+        document.location.replace('/');
+    }
 });
-dashboard.addEventListener('click', () => {
-    // console.log('DASHBOARD');
+dashboard.addEventListener('click', async (e) => {
+    console.log('DASHBOARD');
+    e.preventDefault();
+    const res = await fetch('/dashboard', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    });
+    if (res.ok) {
+        document.location.replace('/dashboard');
+    }
 });
-login.addEventListener('click', () => {
+login.addEventListener('click', async (e) => {
     // console.log('LOGIN');
+    e.preventDefault();
+    const res = await fetch('/login', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    });
+    if (res.ok) {
+        document.location.replace('/login');
+    }
 });
 logout.addEventListener('click', () => {
     // console.log('LOGOUT');

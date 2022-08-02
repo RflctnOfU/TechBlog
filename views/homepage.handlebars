@@ -1,12 +1,12 @@
-{{!-- {{#each}} --}}
+{{#each posts as |post|}}
 <section class="card">
     {{!-- <a href="/posts/{{id}}"> --}}
         <header>
-            <h4>{{posts.[0].title}}</h4>
-            <h6>Posted by {{user.[0].name}} at {{format_date posts.[0].created_at}}</h6>
+            <h4>{{post.title}}</h4>
+            <h6>Posted by {{user.name}} at {{format_date post.created_at}}</h6>
         </header>
-        <p>{{posts.[0].text}}</p>
+        <p>{{post.text}}</p>
         {{!--
     </a> --}}
 </section>
-{{!-- {{/each}} --}}
+{{/each}}

@@ -24,7 +24,23 @@ nav button {
     padding: 0.5rem 1.2rem;
     margin: 0;
     text-decoration: none;
-    font-size: 1.75rem;
+    /* font-size: 1.75rem; */
+    font-weight: bold;
+    border-radius: 0.3rem;
+    border: 1px solid var(--highlight-color);
+    outline: none;
+    transition: .3s;
+    opacity: 1;
+}
+
+.form-group button {
+    font-family: 'Work Sans', sans-serif;
+    color: var(--text-color);
+    background-color: var(--main-color);
+    padding: 0.5rem 1.2rem;
+    margin: 0;
+    text-decoration: none;
+    font-size: 1.2rem;
     font-weight: bold;
     border-radius: 0.3rem;
     border: 1px solid var(--highlight-color);
@@ -72,6 +88,20 @@ header {
     color: var(--main-color);
 }
 
+form {
+    width: 50%;
+}
+
+label {
+    font-family: 'Rajdhani', sans-serif;
+}
+
+#login-title {
+    padding-left: 20px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+}
+
 h4 {
     padding-left: 15px;
 }
@@ -90,7 +120,8 @@ h6 {
 
 main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-content: center;
 }
 
 /* #grad {

@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
         });
 
         req.session.save(() => {
-            req.session.loggedIn = true;
+            req.session.logged_in = true;
 
             res.status(200).json(dbUserData);
         });
@@ -21,6 +21,12 @@ router.post('/', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
+    if (req.session.logged_in) {
+        res.render('homepage', {
+            posts,
+        });
+    };
+
     try {
         const dbUserData = await User.findOne({
             where: {
@@ -45,7 +51,7 @@ router.post('/login', async (req, res) => {
         }
 
         req.session.save(() => {
-            req.session.loggedIn = true;
+            req.session.logged_in = true;
             console.log(
                 '🚀 ~ file: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie',
                 req.session.cookie
@@ -59,10 +65,11 @@ router.post('/login', async (req, res) => {
         console.log(err);
         res.status(500).json(err);
     }
+
 });
 
 router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
+    if (req.session.logged_in) {
         req.session.destroy(() => {
             res.status(204).end();
         });
