@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/css/jass.css">
     <link rel="stylesheet" href="/css/style.css">
 
-    <title>The Tech Blog</title>
+    <title>Dashboard</title>
 </head>
 
 <body>
@@ -25,32 +25,34 @@
                     <div style="font-weight: bold; display: inline-block;">
                         <button type="button" id="home">Home</button>
                         {{!-- <button type="button" id="dashboard">Dashboard</button> --}}
-                        {{!-- {{#if logged_in}} --}}
+                        {{#if logged_in}}
                         <button type="button" id="logout">Logout</button>
-                        {{!-- {{else}} --}}
-                        {{!-- <button type="button" id="login">Login</button> --}}
-                        {{!-- {{/if}} --}}
+                        {{else}}
+                        <button type="button" id="login">Login</button>
+                        {{/if}}
                     </div>
                 </nav>
             </div>
         </div>
-        {{!-- {{#if dashboard}} --}}
-        {{!-- <div class="title">
-            <h2>Dashboard</h2>
-        </div> --}}
-        {{!-- {{else}} --}}
+        {{#if dashboard}}
         <div class="title">
             <h2>Dashboard</h2>
         </div>
-        {{!-- {{/if}} --}}
+        {{else}}
+        <div class="title">
+            <h2>Dashboard</h2>
+        </div>
+        {{/if}}
     </header>
     <main>
         {{{body}}}
+
+        <button type="button" id="new-post">New Post</button>
     </main>
-    {{!-- {{#if logged_in}}
-    <script src="/js/logout.js"></script>
-    {{/if}} --}}
-    <script src="/js/main.js"></script>
+
+
+
+    <script src="/js/dashboard.js"></script>
 </body>
 
 </html>

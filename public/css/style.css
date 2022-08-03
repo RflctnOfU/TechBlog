@@ -8,7 +8,7 @@
 
 body {
     background-color: var(--bg-color);
-    height: 100%;
+    height: 100vh;
 }
 
 nav button {
@@ -35,7 +35,8 @@ nav button {
 
 
 .form-group button,
-#sign-up {
+#sign-up,
+#new-post {
     font-family: 'Work Sans', sans-serif;
     color: var(--text-color);
     background-color: var(--main-color);
@@ -53,13 +54,18 @@ nav button {
 
 nav button:hover,
 .form-group button:hover,
-#sign-up:hover {
+#sign-up:hover,
+#new-post:hover {
     transition: all;
     color: var(--highlight-color);
     text-decoration: none;
     opacity: .7;
     transition: .3s;
     cursor: pointer;
+}
+
+#new-post {
+    justify-content: end;
 }
 
 header {
