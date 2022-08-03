@@ -52,7 +52,7 @@ router.post('/login', async (req, res) => {
         });
     } catch (err) {
         console.log(err);
-        res.status(400).json(err);
+        res.status().json(err);
     }
 
 });
@@ -65,9 +65,6 @@ router.post('/logout', (req, res) => {
     } else {
         res.status(404).end();
     }
-    // res.render('homepage', {
-    //     posts,
-    // });
 });
 
 module.exports = router;

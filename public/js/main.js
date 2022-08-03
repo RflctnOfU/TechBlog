@@ -22,7 +22,7 @@ dashboard.addEventListener('click', async (e) => {
         headers: { 'Content-Type': 'application/json' },
     });
     if (res.ok) {
-        document.location.replace('/dashboard');
+        document.location.reload();
     }
 });
 login.addEventListener('click', async (e) => {
@@ -50,4 +50,4 @@ const logOut = async () => {
     }
 };
 
-logout.addEventListener('click', logOut);
+// logout.addEventListener('click', logOut);

@@ -8,11 +8,9 @@ router.get('/', async (req, res) => {
     try {
         const userData = await User.findAll({
             attributes: { exclude: ['password'] },
-            order: [['name', 'ASC']],
         });
 
-        const users = userData.map((project) => project.get({ plain: true }));
-        console.log("hello world");
+        const users = userData.map((user) => user.get({ plain: true }));
 
         const postData = await Posts.findAll({
             include: [
@@ -48,8 +46,8 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-router.get('/dashboard/', withAuth, (req, res) => {
-    res.render('dashboard');
-});
+// router.get('/dashboard/', withAuth, (req, res) => {
+//     res.render('dashboard');
+// });
 
 module.exports = router;
