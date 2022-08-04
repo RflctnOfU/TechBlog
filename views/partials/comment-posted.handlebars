@@ -1,0 +1,10 @@
+<div class="user-comments">
+    {{#each comment}}
+    <hr>
+    <div class="card">
+        <h6 class="card-header">Comments</h6>
+        <h6>Posted by {{user.name}}</h6>
+    </div>
+    <p class="comment card-body">{{comment_text}}</p>
+    {{/each}}
+</div>

@@ -10,7 +10,7 @@ const addCommentHandler = async (e) => {
             headers: { 'Content-Type': 'application/json' }
         });
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace(`/post/${e.target.getAttribute(post.id)}`);
         } else {
             alert('Comment post failed');
         }

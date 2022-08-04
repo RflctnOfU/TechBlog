@@ -46,6 +46,7 @@ router.get('/', async (req, res) => {
 
 router.get('/post/:id', async (req, res) => {
     try {
+
         const postData = await Posts.findByPk(req.params.id, {
             attributes: ['id', 'title', 'text', 'created_at'],
             include: [{

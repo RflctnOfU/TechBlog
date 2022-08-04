@@ -8,6 +8,9 @@
         <h6>Posted by {{user.name}} at {{format_date post.createdAt}}</h6>
     </header>
     <p>{{post.text}}</p>
+    {{#if logged_in}}
+    {{> comment}}
+    {{/if}}
 
 
 </section>
