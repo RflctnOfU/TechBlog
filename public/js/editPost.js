@@ -1,4 +1,6 @@
 const updatePostHandler = async (e) => {
+    e.preventDefault();
+
     const title = document.querySelector('#post-title').value;
     const text = document.querySelector('#post-text').value;
 
@@ -19,8 +21,8 @@ const updatePostHandler = async (e) => {
 
 const deletePost = async (e) => {
     e.preventDefault();
-
-    const response = await fetch('/api/posts/:id', {
+    console.log(e.target.getAttribute('data-id'));
+    const response = await fetch(`/api/posts/${e.target.getAttribute('data-id')}`, {
         method: 'DELETE',
     });
 

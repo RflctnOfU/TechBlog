@@ -13,20 +13,15 @@ home.addEventListener('click', async (e) => {
     }
 });
 dashboard.addEventListener('click', async (e) => {
-    try {
-
-        // console.log('DASHBOARD');
-        e.preventDefault();
-        const res = await fetch('/dashboard', {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-        });
-        if (res.ok) {
-            document.location.replace('dashboard');
-
-        }
-    } catch (error) {
-
+    console.log('DASHBOARD');
+    e.preventDefault();
+    const response = await fetch('/dashboard', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    });
+    if (response.ok) {
+        console.log(document.location);
+        document.location.replace('/dashboard');
     }
 });
 
