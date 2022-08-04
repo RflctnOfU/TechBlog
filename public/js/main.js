@@ -23,7 +23,7 @@ dashboard.addEventListener('click', async (e) => {
     });
     if (response.ok) {
         console.log(document.location);
-        // document.location.replace('/dashboard');
+        document.location.replace('/dashboard');
     }
 });
 login.addEventListener('click', async (e) => {

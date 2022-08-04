@@ -84,7 +84,7 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-router.get('/dashboard/', withAuth, (req, res) => {
+router.get('/dashboard', withAuth, (req, res) => {
     res.render('dashboard');
 });
 

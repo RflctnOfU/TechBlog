@@ -3,7 +3,7 @@ const createPostHandler = async (e) => {
 
     const title = document.querySelector('#post-title').value;
     const text = document.querySelector('#post-text').value;
-    console.log(title, text);
+
     if (title && text) {
         const response = await fetch('/api/posts/', {
             method: 'POST',
