@@ -15,7 +15,22 @@ const updatePostHandler = async (e) => {
             alert('update failed')
         }
     }
+}
 
+const deletePost = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch('/api/posts/:id', {
+        method: 'DELETE',
+    });
+
+    if (response.ok) {
+        document.location.replace('/dashboard');
+    } else {
+        alert('Failed to delete post')
+    }
 }
 
 document.querySelector('.edit-form').addEventListener('submit', updatePostHandler);
+
+document.querySelector('.delete-post').addEventListener('click', deletePost);

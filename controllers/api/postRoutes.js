@@ -29,19 +29,44 @@ router.get('/', async (req, res) => {
 router.put('/:id', withAuth, async (req, res) => {
     try {
         const postUpdate = await Posts.update({
+            _where: {
+                id: req.params.id,
+                user_id: req.session.user_id
+            },
+            get where() {
+                return this._where;
+            },
+            set where(value) {
+                this._where = value;
+            },
             title: req.body.title,
             text: req.body.text
-        },
-            {
-                where: {
-                    id: req.params.id,
-                }
-            })
+        });
+
         res.json(postUpdate);
     } catch (err) {
         res.status(500).json(err);
     }
 })
+
+router.delete('/:id', withAuth, async (req, res) => {
+    try {
+        const deletePost = await Posts.destroy({
+            where: {
+                id: req.params.id,
+                user_id: req.session.user_id,
+            },
+        });
+        if (!deletePost) {
+            res.status(404).json({ message: 'Post not found' });
+            return
+        }
+        res.json(deletePost);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
 
 
 module.exports = router;

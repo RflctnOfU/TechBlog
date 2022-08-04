@@ -5,9 +5,7 @@
     </header>
     <p>{{post.text}}</p>
     <br>
-    {{#each comment}}
-    <p class="comment">{{comment.text}}</p>
-    {{/each}}
+    {{> comment}}
     {{#if logged_in}}
     <br>
     <form class="comment-form">

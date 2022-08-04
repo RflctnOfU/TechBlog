@@ -91,6 +91,9 @@ router.get('/new', async (req, res) => {
 router.get('/edit/:id', withAuth, async (req, res) => {
     try {
         const postData = await Posts.findByPk(req.params.id, {
+            where: {
+                id: req.params.id
+            },
             attributes: ['id', 'title', 'text', 'created_at'],
             include: [
                 {
@@ -110,6 +113,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
         res.render('editPost', {
             layout: 'dashboard.handlebars',
             post,
+            logged_in: req.session.logged_in
         });
     } catch (error) {
         console.log(error);

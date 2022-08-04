@@ -9,7 +9,7 @@ router.post('/', withAuth, async (req, res) => {
             post_id: req.body.post_id,
         });
         res.status(200).json(commentData);
-        res.render('dashboard');
+        res.render('homepage');
     } catch (err) {
         res.status(500).json(err);
     }

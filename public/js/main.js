@@ -22,7 +22,7 @@ dashboard.addEventListener('click', async (e) => {
         headers: { 'Content-Type': 'application/json' },
     });
     if (res.ok) {
-        document.location.reload();
+        document.location.replace('/dashboard');
     }
 });
 login.addEventListener('click', async (e) => {
