@@ -40,6 +40,8 @@ const newPost = async () => {
 
 document.querySelector('#new-post').addEventListener('click', newPost);
 
+
+
 // const createPostHandler = async (e) => {
 //     e.preventDefault();
 
@@ -63,3 +65,16 @@ document.querySelector('#new-post').addEventListener('click', newPost);
 // }
 
 // document.querySelector('#post').addEventListener('submit', createPostHandler);
+
+const dashboardRedirect = async (e) => {
+    e.preventDefault();
+    const response = await fetch('/dashboard', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    });
+    if (response.ok) {
+        document.location.replace('/dashboard');
+    }
+}
+
+document.querySelector('#dashboard').addEventListener('click', dashboardRedirect)

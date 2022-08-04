@@ -17,11 +17,11 @@ home.addEventListener('click', async (e) => {
 dashboard.addEventListener('click', async (e) => {
     console.log('DASHBOARD');
     e.preventDefault();
-    const res = await fetch('/dashboard', {
+    const response = await fetch('/dashboard', {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
     });
-    if (res.ok) {
+    if (response.ok) {
         document.location.replace('/dashboard');
     }
 });
