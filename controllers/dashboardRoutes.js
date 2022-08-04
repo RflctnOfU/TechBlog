@@ -83,9 +83,38 @@ router.get('/new', async (req, res) => {
             logged_in: req.session.logged_in,
         });
     } catch (error) {
-        console.log(err);
-        res.status(500).json(err);
+        console.log(error);
+        res.status(500).json(error);
     }
 });
+
+router.get('/edit/:id', withAuth, async (req, res) => {
+    try {
+        const postData = await Posts.findByPk(req.params.id, {
+            attributes: ['id', 'title', 'text', 'created_at'],
+            include: [
+                {
+                    model: User,
+                    attributes: ['id', 'name'],
+                },
+                {
+                    model: Comment,
+                    attributes: ['id', 'text', 'user_id', 'posts_id', 'created_at',],
+                    include: {
+                        model: User,
+                        attributes: ['name'],
+                    },
+                }]
+        });
+        const post = postData.get({ plain: true });
+        res.render('editPost', {
+            layout: 'dashboard.handlebars',
+            post,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+    }
+})
 
 module.exports = router;

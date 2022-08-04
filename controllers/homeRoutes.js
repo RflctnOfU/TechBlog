@@ -18,6 +18,17 @@ router.get('/', async (req, res) => {
                     model: User,
                     attributes: ['id', 'name'],
                 },
+                {
+                    model: Comment,
+                    attributes: ['id', 'text', 'user_id', 'posts_id', 'created_at'],
+                    include: [
+                        {
+                            model: User,
+                            attributes: ['id', 'name']
+                        }
+                    ]
+                }
+
             ],
         });
         const posts = postData.map((post) => post.get({ plain: true }));
@@ -32,6 +43,33 @@ router.get('/', async (req, res) => {
     }
 }
 );
+
+router.get('/post/:id', async (req, res) => {
+    try {
+        const postData = await Posts.findByPk(req.params.id, {
+            attributes: ['id', 'title', 'text', 'created_at'],
+            include: [{
+                model: User,
+                attributes: ['name']
+            },
+            {
+                model: Comment,
+                attributes: ['id', 'text', 'user_id', 'posts_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['name']
+                }
+            }]
+        })
+        if (!postData) {
+            res.status(404).json({ message: 'not found' });
+            return;
+        } const post = postData.get({ plain: true });
+        res.render('singlePost', { post, logged_in: req.session.logged_in })
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
 
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {

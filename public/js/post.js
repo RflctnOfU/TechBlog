@@ -1,22 +1,22 @@
-// const createPostHandler = async (e) => {
-//     e.preventDefault();
+const createPostHandler = async (e) => {
+    e.preventDefault();
 
-//     const title = document.querySelector('#post-title').value;
-//     const text = document.querySelector('#post-text').value;
+    const title = document.querySelector('#post-title').value;
+    const text = document.querySelector('#post-text').value;
+    console.log(title, text);
+    if (title && text) {
+        const response = await fetch('/api/posts/', {
+            method: 'POST',
+            body: JSON.stringify({ title, text }),
+            headers: { 'Content-Type': 'application/json' },
+        });
 
-//     if (title && text) {
-//         const response = await fetch('/api/posts/', {
-//             method: 'POST',
-//             body: JSON.stringify({ title, text }),
-//             headers: { 'Content-Type': 'application/json' },
-//         });
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert('Failed to make new post.')
+        }
+    }
+}
 
-//         if (response.ok) {
-//             document.location.replace('/');
-//         } else {
-//             alert('Failed to make new post.')
-//         }
-//     }
-// }
-
-// document.querySelector('#post').addEventListener('submit', createPostHandler);
+document.querySelector('#post').addEventListener('click', createPostHandler);

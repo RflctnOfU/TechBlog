@@ -36,7 +36,8 @@ nav button {
 
 .form-group button,
 #sign-up,
-#new-post {
+#new-post,
+.btn-primary {
     font-family: 'Work Sans', sans-serif;
     color: var(--text-color);
     background-color: var(--main-color);
@@ -52,10 +53,16 @@ nav button {
     opacity: 1;
 }
 
+.btn-primary,
+#comment-text {
+    margin-left: 10px;
+}
+
 nav button:hover,
 .form-group button:hover,
 #sign-up:hover,
-#new-post:hover {
+#new-post:hover,
+.btn-primary {
     transition: all;
     color: var(--highlight-color);
     text-decoration: none;
