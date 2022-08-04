@@ -15,10 +15,18 @@ const addCommentHandler = async (e) => {
             alert('Comment post failed');
         }
     }
-
 }
 
-
+const deleteCommentHandler = async () => {
+    const response = await fetch('api/comments/:id', {
+        method: 'DELETE',
+    });
+    if (response.ok) {
+        document.location.replace('/');
+    } else {
+        alert('Comment delete failed.')
+    }
+}
 
 
 document.querySelector('.comment-form').addEventListener('submit', addCommentHandler);
