@@ -1,6 +1,7 @@
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)     
   # The Tech Blog
 
+  ![Screenshot](/img/Screen%20Shot%202022-08-03%20at%2011.38.54%20PM.png)
   ---
   ## Description
 
@@ -55,3 +56,7 @@
   My [Github](https://github.com/RflctnOfU) profile.
 
   If you have questions, send me an [email](rflctnofu@hotmail.com)
+
+  ---
+  ## Deployed App
+  [App on Heroku](https://nameless-mountain-71362.herokuapp.com/)
