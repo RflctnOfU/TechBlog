@@ -5,7 +5,8 @@ const updatePostHandler = async (e) => {
     const text = document.querySelector('#post-text').value;
 
     if (title && text) {
-        const response = await fetch('/api/posts/:id', {
+        console.log(e.target.getAttribute('data-id'));
+        const response = await fetch(`/api/posts/${e.target.getAttribute('data-id')}`, {
             method: 'PUT',
             body: JSON.stringify({ title, text }),
             headers: { 'Content-Type': 'application/json' },
@@ -33,6 +34,6 @@ const deletePost = async (e) => {
     }
 }
 
-document.querySelector('.edit-form').addEventListener('submit', updatePostHandler);
+document.querySelector('#update-post').addEventListener('click', updatePostHandler);
 
-document.querySelector('.delete-post').addEventListener('click', deletePost);
+document.querySelector('#delete-post').addEventListener('click', deletePost);
