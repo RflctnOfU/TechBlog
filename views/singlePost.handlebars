@@ -1,7 +1,7 @@
 <section class="card">
     <header>
         <h4>{{post.title}}</h4>
-        <h6>Posted by {{user.name}} at {{format_date post.created_at}}</h6>
+        <h6>Posted by {{post.user.name}} at {{format_date post.created_at}}</h6>
     </header>
     <p>{{post.text}}</p>
     <br>
