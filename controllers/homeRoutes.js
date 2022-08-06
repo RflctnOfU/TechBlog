@@ -43,6 +43,36 @@ router.get('/', async (req, res) => {
 }
 );
 
+router.get('/comment/:id', withAuth, async (req, res) => {
+    try {
+        const commentData = await Comment.findByPk(req.params.id, {
+            where: {
+                id: req.params.id,
+                user_id: req.session.user_id
+            },
+            attributes: ['id', 'text', 'user_id', 'posts_id'],
+            include: [
+                {
+                    model: User,
+                    attributes: ['name', 'id']
+                }
+            ]
+        });
+
+        if (!commentData) {
+            res.status(404).json({ message: 'not found' });
+            return;
+        } const comment = commentData.get({ plain: true });
+        res.render('editComment', {
+            layout: 'main.handlebars',
+            comment,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
+
 router.get('/post/:id', async (req, res) => {
     try {
 

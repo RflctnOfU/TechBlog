@@ -1,0 +1,19 @@
+<div class="card">
+    <h2 class="card-header">Edit your Comment</h2>
+    <form class="card-body edit-form">
+        <div class="form-group">
+            <label for="comment-text">Comment Text: </label>
+            <textarea class="form-input" type="text" name="comment-text" id="comment-text" />{{comment.text}}</textarea>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" id="update-comment" data-id="{{comment.id}}" type="submit">Update
+                Comment</button>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" id="delete-comment" type="button" data-id="{{comment.id}}">Delete
+                Comment</button>
+        </div>
+    </form>
+</div>
+
+<script src="/js/editComment.js"></script>

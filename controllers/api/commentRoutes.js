@@ -19,40 +19,36 @@ router.post('/', withAuth, async (req, res) => {
 
 });
 
-// router.get('/', async (req, res) => {
-//     try {
-//         const comments = await Comment.findAll();
-//         res.json(comments);
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+router.put('/:id', withAuth, async (req, res) => {
+    try {
+        const comment = await Comment.findOne({ where: { id: req.params.id, user_id: req.session.user_id } });
+        await comment.update({
+            text: req.body.text,
+        });
 
-// router.get('/edit/:id', async (req, res) => {
-//     try {
-//         const commentData = await Comment.findByPk(req.params.id, {
-//             where: {
-//                 id: req.params.id
-//             },
-//             attributes: ['id', 'text', 'user_id', 'posts_id'],
-//             include: [
-//                 {
-//                     model: User,
-//                     attributes: ['id', 'name']
-//                 }
-//             ]
-//         });
-//         const comment = commentData.get({ plain: true });
-//         res.render('editComment', {
-//             layout: 'main.handlebars',
-//             comment,
-//             logged_in: req.session.logged_in
-//         })
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// })
+        res.json(comment);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
 
-// router.put('/')
+router.delete('/:id', async (req, res) => {
+    try {
+        const deleteComment = await Comment.destroy({
+            where: {
+                id: req.params.id,
+                user_id: req.session.user_id,
+            },
+        });
+        if (!deleteComment) {
+            res.status(400).json({ message: 'Comment not found' });
+            return;
+        }
+        // res.render('/');
+        res.json({ message: "deleted" });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
 
 module.exports = router;
