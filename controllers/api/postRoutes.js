@@ -28,7 +28,6 @@ router.get('/', async (req, res) => {
 
 router.put('/:id', withAuth, async (req, res) => {
     try {
-        console.log(req.body);
         const post = await Posts.findOne({ where: { id: req.params.id, user_id: req.session.user_id } });
         await post.update({
             title: req.body.title,

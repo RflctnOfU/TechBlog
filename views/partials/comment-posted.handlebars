@@ -1,15 +1,12 @@
 <div class="user-comments">
-    {{!-- {{#each comment}} --}}
     <hr>
+    {{#each post.comments}}
     <section class="card" style="margin-left: 15px;">
         <header class="card-header">
             <h6>Comment</h6>
         </header>
-        {{#each post.comments}}
         <p class="comment card-body">{{text}}</p>
         <p>--{{user.name}} {{format_date created_at}}</p>
-        {{/each}}
     </section>
-
-    {{!-- {{/each}} --}}
+    {{/each}}
 </div>

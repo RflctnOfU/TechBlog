@@ -1,6 +1,5 @@
 {{#each posts as |post|}}
 <section class="card">
-
     <header>
         <a href="/post/{{id}}">
             <h4>{{post.title}}</h4>
@@ -11,7 +10,5 @@
     {{#if logged_in}}
     {{> comment}}
     {{/if}}
-
-
 </section>
 {{/each}}

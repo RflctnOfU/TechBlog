@@ -38,7 +38,6 @@ router.get('/', async (req, res) => {
             logged_in: req.session.logged_in,
         });
     } catch (err) {
-        console.log(err);
         res.status(500).json(err);
     }
 }
@@ -68,7 +67,6 @@ router.get('/post/:id', async (req, res) => {
             res.status(404).json({ message: 'not found' });
             return;
         } const post = postData.get({ plain: true });
-        console.log(post)
         res.render('singlePost', { post, logged_in: req.session.logged_in })
     } catch (err) {
         res.status(500).json(err);
@@ -87,9 +85,5 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
     res.render('signup');
 });
-
-// router.get('/dashboard', withAuth, (req, res) => {
-//     res.render('dashboard');
-// });
 
 module.exports = router;

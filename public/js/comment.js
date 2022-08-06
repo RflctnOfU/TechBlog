@@ -2,34 +2,21 @@ const addCommentHandler = async (e) => {
     e.preventDefault();
 
     const text = document.querySelector('#comment-text').value;
+    const posts_id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
 
     if (text) {
         const response = await fetch('/api/comments', {
             method: 'POST',
-            body: JSON.stringify({ text }),
+            body: JSON.stringify({ text, posts_id }),
             headers: { 'Content-Type': 'application/json' }
         });
         if (response.ok) {
-            console.log('okay');
-            // document.location.replace(`/post/${e.target.getAttribute(post.id)}`);
+            document.location.reload();
         } else {
             alert('Comment post failed');
         }
     }
 }
 
-// const deleteCommentHandler = async () => {
-//     const response = await fetch('api/comments/:id', {
-//         method: 'DELETE',
-//     });
-//     if (response.ok) {
-//         document.location.replace('/');
-//     } else {
-//         alert('Comment delete failed.')
-//     }
-// }
-
-
 document.querySelector('.comment-form').addEventListener('submit', addCommentHandler);
 
-// document.querySelector('.delete-comment').addEventListener('click', deleteCommentHandler);

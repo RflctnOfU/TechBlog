@@ -1,14 +1,10 @@
 {{#each posts as |post|}}
 <section class="card">
-
     <header>
         <a href="/dashboard/edit/{{post.id}}">
             <h4>{{post.title}}</h4>
         </a>
         <h6>Posted by {{user.name}} at {{format_date post.created_at}}</h6>
     </header>
-    {{!-- <p>{{post.text}}</p> --}}
-
-
 </section>
 {{/each}}
