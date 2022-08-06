@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
             text: req.body.text,
             user_id: req.session.user_id,
         });
-        res.status(200).json(postData);
+        // res.status(200).json(postData);
         res.render('allPosts');
     } catch (err) {
         res.status(500).json(err);
