@@ -19,16 +19,18 @@
 
   ---
   ## Installation
-
+  If you are running this locally, fork the repo first. Then
   ```bash
   npm i
+  npm run seed
+  npm start
   ```
-
   ---
   ## Usage
 
   ```
-  login or signup to use the blog
+  Open a browser and go to localhost:3001 in your favorite browser.
+  Then login or signup to use the blog
   ```
 
   ---
