@@ -1,0 +1,10 @@
+<h3>My comments</h3>
+{{#each comments as |comment|}}
+<div class="card">
+    <header>
+        <a href="/api/comments/{{comment.id}}">
+            <h6>{{comment.text}}</h6>
+        </a>
+    </header>
+</div>
+{{/each}}

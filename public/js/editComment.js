@@ -5,14 +5,14 @@ const updateCommentHandler = async (e) => {
 
     if (text) {
         console.log(e.target.getAttribute('data-id'));
-        const response = await fetch(`/api/comments/edit/${e.target.getAttribute('data-id')}`, {
+        const response = await fetch(`/api/comments/${e.target.getAttribute('data-id')}`, {
             method: 'PUT',
             body: JSON.stringify({ text }),
             headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/api/comments');
         } else {
             alert('update failed')
         }
@@ -27,12 +27,12 @@ const deleteComment = async (e) => {
     });
 
     if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/api/comments');
     } else {
         alert('Failed to delete comment')
     }
 }
 
-document.querySelector('#update-comment').addEventListener('click', updateCommentHandler);
+document.querySelector('.edit-form').addEventListener('submit', updateCommentHandler);
 
-document.querySelector('#delete-comment').addEventListener('click', deleteComment);
+document.querySelector('.delete-button').addEventListener('click', deleteComment);

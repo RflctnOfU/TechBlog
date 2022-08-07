@@ -2,7 +2,52 @@ const router = require('express').Router();
 const { Comment, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+router.get('/', withAuth, async (req, res) => {
+    try {
+        const commentData = await Comment.findAll({
+            where: {
+                user_id: req.session.user_id,
+            },
+            attributes: ['id', 'text'],
+            include: {
+                model: User,
+                attributes: ['name']
+            }
+        });
+        const comments = commentData.map((comment) => comment.get({ plain: true }));
+        res.render('allComments', {
+            layout: 'main.handlebars',
+            comments,
+            logged_in: req.session.logged_in,
+        })
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
 
+router.get('/:id', withAuth, async (req, res) => {
+    try {
+        console.log(req.body);
+        const commentData = await Comment.findByPk(req.params.id, {
+            where: {
+                id: req.params.id
+            },
+            attributes: ['id', 'text', 'user_id', 'posts_id'],
+            include: [{
+                model: User,
+                attributes: ['id', 'name'],
+            }]
+        });
+        const comment = commentData.get({ plain: true });
+        res.render('editComment', {
+            layout: 'main.handlebars',
+            comment,
+            logged_in: req.session.logged_in,
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
 
 router.post('/', withAuth, async (req, res) => {
     try {
@@ -21,7 +66,11 @@ router.post('/', withAuth, async (req, res) => {
 
 router.put('/:id', withAuth, async (req, res) => {
     try {
-        const comment = await Comment.findOne({ where: { id: req.params.id, user_id: req.session.user_id } });
+        console.log(req.body.text);
+        const comment = await Comment.findOne({
+            where: { id: req.params.id, user_id: req.session.user_id },
+            attributes: ['id', 'text', 'user_id', 'posts_id']
+        });
         await comment.update({
             text: req.body.text,
         });
@@ -32,7 +81,7 @@ router.put('/:id', withAuth, async (req, res) => {
     }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const deleteComment = await Comment.destroy({
             where: {

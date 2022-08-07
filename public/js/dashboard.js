@@ -77,4 +77,17 @@ const dashboardRedirect = async (e) => {
     }
 }
 
+const myComments = async (e) => {
+    e.preventDefault();
+    const response = await fetch('/api/comments', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    });
+    if (response.ok) {
+        document.location.replace('/api/comments')
+    }
+}
+
 document.querySelector('#dashboard').addEventListener('click', dashboardRedirect)
+
+document.querySelector('#my-comments').addEventListener('click', myComments);

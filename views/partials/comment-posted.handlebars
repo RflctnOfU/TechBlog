@@ -3,9 +3,7 @@
     {{#each post.comments}}
     <section class="card" style="margin-left: 15px;">
         <header class="card-header">
-            <a href="/comment/{{id}}">
-                <h6>Comment</h6>
-            </a>
+            <h6>Comment</h6>
         </header>
         <p class="comment card-body">{{text}}</p>
         <p>--{{user.name}} {{format_date created_at}}</p>
